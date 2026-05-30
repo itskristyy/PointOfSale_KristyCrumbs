@@ -399,6 +399,9 @@ $alert_count = $_SESSION['alert_stok'] ?? 0;
               <span style="margin-left:auto;background:#dc2626;color:#fff;border-radius:10px;padding:0 6px;font-size:10px;font-weight:700;min-width:18px;text-align:center;"><?= $alert_count ?></span>
             <?php endif; ?>
           </a>
+          <a href="<?= $base_url ?>/function/function_werehouse/resep/index.php" class="sb-link <?= ($active ?? '') === 'warehouse-resep' ? 'active' : '' ?>">
+            <i class='bx bx-book-open'></i> Kelola Resep
+          </a>
           <a href="<?= $base_url ?>/function/function_werehouse/alert_stok.php" class="sb-link <?= ($active ?? '') === 'warehouse-alert' ? 'active' : '' ?>">
             <i class='bx bx-bell<?= $alert_count > 0 ? " bx-tada" : "" ?>'></i> Alert Stok
             <?php if ($alert_count > 0): ?>
