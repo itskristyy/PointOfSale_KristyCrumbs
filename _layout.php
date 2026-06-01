@@ -9,8 +9,8 @@ $relative_subpath = trim(str_replace($root_dir, '', $current_dir), '/');
 
 $base_url = '';
 if ($relative_subpath !== '') {
-    $depth = count(explode('/', $relative_subpath));
-    $base_url = str_repeat('../', $depth);
+  $depth = count(explode('/', $relative_subpath));
+  $base_url = str_repeat('../', $depth);
 }
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ if ($relative_subpath !== '') {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style> 
+  <style>
     * {
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
