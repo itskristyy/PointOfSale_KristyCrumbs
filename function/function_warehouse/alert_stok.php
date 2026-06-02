@@ -6,7 +6,7 @@ checkRole(['admin', 'owner']);
 include '../connect.php';
 
 $page_title = 'Alert Stok Menipis';
-$active = 'warehouse-alert';
+$active = 'alert_warehouse';
 
 // query bahan yang stoknya menipis atau habis
 $q = mysqli_query(
@@ -73,7 +73,7 @@ $menipis_count = count($menipis_list) - $habis_count;
     <?php if (empty($menipis_list)) : ?>
 
         <div style="text-align:center;padding:40px 16px;color:#15803d;">
-            <div style="font-size:32px;">✅</div>
+            <i class='bx bx-check-circle' style="font-size:36px;color:#15803d"></i>
             <div style="font-size:14px;font-weight:700;margin-top:8px;">
                 Semua Stok Aman!
             </div>

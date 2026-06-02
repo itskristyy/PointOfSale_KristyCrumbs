@@ -11,7 +11,7 @@ $page_title = match (strtolower($tab)) {
   'pesanan' => 'Pesanan',
   'laporan' => 'Laporan',
   'meja'    => 'Kelola Meja',
-  default   => 'Dashboard',
+  default   => 'Dashboard Admin',
 };
 $active = strtolower($tab) === 'dashboard' ? 'dashboard' : strtolower($tab);
 include '_layout.php';
