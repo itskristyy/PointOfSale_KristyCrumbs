@@ -28,6 +28,15 @@ if (isset($_GET['id'])) {
     mysqli_stmt_close($stmt);
 
     if ($result) {
+        // Panggil autoKurangStok untuk mengurangi bahan baku berdasarkan resep
+        include_once '../function_warehouse/functions/auto_kurang_stok.php';
+        $res_stok = autoKurangStok($koneksi, $id);
+        
+        // Log error jika autoKurangStok gagal
+        if (isset($res_stok['success']) && !$res_stok['success']) {
+            error_log("[WAREHOUSE] Pesanan #$id: " . $res_stok['message']);
+        }
+        
         echo "<script>alert('Pesanan telah siap saji!'); window.location='../../dapur.php';</script>";
     } else {
         echo "<script>alert('Gagal memperbarui status pesanan!'); window.location='../../dapur.php';</script>";

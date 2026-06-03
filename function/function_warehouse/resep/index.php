@@ -92,8 +92,6 @@ mysqli_stmt_close($stmt);
                 value="<?= htmlspecialchars($search) ?>"
                 style="max-width:220px;">
 
-            >
-
             <select name="kategori" id="filter-kategori" class="form-select form-select-sm" style="max-width:180px;">
                 <option value="">Semua Kategori</option>
                 <option value="makanan" <?= $kategori === 'makanan' ? 'selected' : '' ?>>Makanan</option>

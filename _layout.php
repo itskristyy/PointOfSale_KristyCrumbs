@@ -1,4 +1,5 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) session_start();
 $role  = $_SESSION['role'] ?? '';
 $uname = $_SESSION['username'] ?? '';
 
@@ -12,6 +13,23 @@ if ($relative_subpath !== '') {
   $depth = count(explode('/', $relative_subpath));
   $base_url = str_repeat('../', $depth);
 }
+
+if (($role === 'admin' || $role === 'owner') && !isset($_SESSION['alert_stok'])) {
+  if (!isset($koneksi)) {
+    include_once __DIR__ . '/function/connect.php';
+  }
+  if (isset($koneksi)) {
+    $q_alert = mysqli_query($koneksi, "SELECT COUNT(*) AS total_menipis FROM tb_bahan WHERE stok <= stok_minimum");
+    if ($q_alert) {
+      $_SESSION['alert_stok'] = (int) mysqli_fetch_assoc($q_alert)['total_menipis'];
+    } else {
+      $_SESSION['alert_stok'] = 0;
+    }
+  } else {
+    $_SESSION['alert_stok'] = 0;
+  }
+}
+$alert_count = $_SESSION['alert_stok'] ?? 0;
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -436,9 +454,19 @@ if ($relative_subpath !== '') {
       <?php if ($role === 'admin' || $role === 'owner'): ?>
         <div class="sb-section">Warehouse</div>
         <div class="sb-nav">
-          <a href="<?= $base_url ?>function/function_warehouse/bahan/index.php" class="sb-link <?= ($active ?? '') === 'warehouse' ? 'active' : '' ?>"><i class='bx bx-package'></i> Bahan Baku</a>
+          <a href="<?= $base_url ?>function/function_warehouse/bahan/index.php" class="sb-link <?= ($active ?? '') === 'warehouse' ? 'active' : '' ?>">
+            <i class='bx bx-package'></i> Bahan Baku
+            <?php if ($alert_count > 0): ?>
+              <span class="kc-badge kc-badge-red ms-auto" style="padding: 2px 6px; font-size: 9px; line-height: 1;"><?= $alert_count ?></span>
+            <?php endif; ?>
+          </a>
           <a href="<?= $base_url ?>function/function_warehouse/resep/index.php" class="sb-link <?= ($active ?? '') === 'warehouse-resep' ? 'active' : '' ?>"><i class='bx bx-book-alt'></i> Kelola Resep</a>
-          <a href="<?= $base_url ?>function/function_warehouse/alert_stok.php" class="sb-link <?= ($active ?? '') === 'alert_warehouse' ? 'active' : '' ?>"><i class='bx bx-bell'></i> Alert Stok</a>
+          <a href="<?= $base_url ?>function/function_warehouse/alert_stok.php" class="sb-link <?= ($active ?? '') === 'alert_warehouse' ? 'active' : '' ?>">
+            <i class='bx bx-bell'></i> Alert Stok
+            <?php if ($alert_count > 0): ?>
+              <span class="kc-badge kc-badge-red ms-auto" style="padding: 2px 6px; font-size: 9px; line-height: 1;"><?= $alert_count ?></span>
+            <?php endif; ?>
+          </a>
           <a href="<?= $base_url ?>function/function_warehouse/laporan/index.php" class="sb-link <?= ($active ?? '') === 'laporan_warehouse' ? 'active' : '' ?>"> <i class='bx bx-bar-chart-alt-2'></i> Laporan Stok</a>
           <a href="<?= $base_url ?>function/function_warehouse/laporan/log.php" class="sb-link <?= ($active ?? '') === 'log_warehouse' ? 'active' : '' ?>"><i class='bx bx-history'></i> Riwayat Log</a>
         </div>

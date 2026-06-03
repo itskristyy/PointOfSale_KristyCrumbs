@@ -162,6 +162,7 @@ $kategori_list = ['bahan_baku', 'minuman', 'topping', 'kemasan'];
                     <td>
                         <div style="display:flex;flex-direction:row;gap:4px;align-items:center;flex-wrap:nowrap;">
                             <a href="update_bahan.php?id=<?= $b['id_bahan'] ?>" class="btn-kc-outline" title="Edit Bahan" id="btn-edit-<?= $b['id_bahan'] ?>"><i class='bx bx-edit'></i></a>
+                            <a href="restock.php?id=<?= $b['id_bahan'] ?>" class="btn-kc btn-kc-sm" title="Tambah Stok" id="btn-restock-<?= $b['id_bahan'] ?>" style="font-size:11px;"><i class='bx bx-plus-circle'></i></a>
                             <a href="../laporan/log.php?id_bahan=<?= $b['id_bahan'] ?>" class="btn-kc-outline" title="Lihat Log Stok" id="btn-log-<?= $b['id_bahan'] ?>"><i class='bx bx-history'></i></a>
                             <a href="delete_bahan.php?id=<?= $b['id_bahan'] ?>" class="btn-kc-danger" title="Hapus Bahan" id="btn-hapus-<?= $b['id_bahan'] ?>" onclick="return confirm('Hapus bahan \'<?= addslashes(htmlspecialchars($b['nama_bahan'])) ?>\'?\n\nSemua resep yang menggunakan bahan ini juga akan terpengaruh.')"><i class='bx bx-trash'></i></a>
                         </div>

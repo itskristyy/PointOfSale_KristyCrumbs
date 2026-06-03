@@ -29,6 +29,12 @@ if (isset($_GET['id'])) {
         mysqli_stmt_execute($del_detail);
         mysqli_stmt_close($del_detail);
 
+        // Hapus stok log yang terkait pesanan ini (FK constraint)
+        $del_log = mysqli_prepare($koneksi, "DELETE FROM tb_stok_log WHERE id_pesanan = ?");
+        mysqli_stmt_bind_param($del_log, "i", $id);
+        mysqli_stmt_execute($del_log);
+        mysqli_stmt_close($del_log);
+
         // Ambil no_meja dari pesanan lalu update status meja menjadi kosong
         $meja_stmt = mysqli_prepare($koneksi, "SELECT no_meja FROM tb_pesanan WHERE id_pesanan = ?");
         mysqli_stmt_bind_param($meja_stmt, "i", $id);

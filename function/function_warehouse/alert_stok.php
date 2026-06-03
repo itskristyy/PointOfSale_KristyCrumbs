@@ -175,9 +175,9 @@ $menipis_count = count($menipis_list) - $habis_count;
 
                         <td>
 
-                            <a href="bahan/update_bahan.php?id=<?= $b['id_bahan'] ?>"
+                            <a href="bahan/restock.php?id=<?= $b['id_bahan'] ?>"
                                 class="btn-kc btn-kc-sm"
-                                title="Catat Restock / Edit Stok"
+                                title="Tambah Stok / Restock"
                                 id="btn-restock-<?= $b['id_bahan'] ?>"
                                 style="font-size:10px;">
 

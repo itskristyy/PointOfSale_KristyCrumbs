@@ -147,6 +147,10 @@ include '../../../_layout.php';
                 class="btn-kc-outline" style="margin-left:auto;">
                 <i class='bx bx-export'></i> Export CSV
             </a>
+            <a href="cetak_stok.php?kategori=<?= urlencode($filter_kategori) ?>&status=<?= urlencode($filter_status) ?>&search=<?= urlencode($filter_search) ?>"
+                target="_blank" class="btn-kc-outline">
+                <i class='bx bx-printer'></i> Cetak
+            </a>
         </form>
     </div>
 </div>
