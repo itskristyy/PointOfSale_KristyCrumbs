@@ -298,6 +298,7 @@ nnnn/
 ├── owner_report.php                    # Layar khusus owner untuk menyusun rentang laporan penjualan harian/mingguan
 ├── print_invoice.php                   # Layar pratinjau struk belanja transaksi yang siap cetak format printer kasir
 └── README.md                           # Dokumentasi teknis sistem POS KristyCrumbs (berkas ini)
+└── README.md                           # Dokumentasi teknis sistem POS KristyCrumbs (berkas ini)
 ```
 
 ---
