@@ -200,10 +200,17 @@ while ($d = mysqli_fetch_assoc($details)) $rows[] = $d;
       <span>Total</span>
       <span>Rp <?= number_format($pesanan['total_harga'], 0, ',', '.') ?></span>
     </div>
-    <div class="info-row"><span>Kembalian</span><span>Rp <?= number_format(($pesanan['uang_bayar'] ?? 0) - ($pesanan['total_harga'] ?? 0),0,',','.') ?></span></div>
     <div class="bayar-row">
+      <span>Uang Bayar</span>
+      <span>Rp <?= number_format($pesanan['uang_bayar'] ?? 0, 0, ',', '.') ?></span>
+    </div>
+    <div class="bayar-row" style="font-weight:bold;">
+      <span>Kembalian</span>
+      <span>Rp <?= number_format(max(0, ($pesanan['uang_bayar'] ?? 0) - ($pesanan['total_harga'] ?? 0)), 0, ',', '.') ?></span>
+    </div>
+    <div class="bayar-row" style="margin-top:4px;">
       <span>Status</span>
-      <span><?= $pesanan['status_bayar'] === 'lunas' ? 'LUNAS' : 'Belum Bayar' ?></span>
+      <span style="font-weight:bold;"><?= $pesanan['status_bayar'] === 'lunas' ? 'LUNAS ✓' : 'Belum Bayar' ?></span>
     </div>
 
     <hr class="garis">
