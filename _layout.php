@@ -437,10 +437,10 @@ if ($relative_subpath !== '') {
         <div class="sb-section">Warehouse</div>
         <div class="sb-nav">
           <a href="<?= $base_url ?>function/function_warehouse/bahan/index.php" class="sb-link <?= ($active ?? '') === 'warehouse' ? 'active' : '' ?>"><i class='bx bx-package'></i> Bahan Baku</a>
-          <a href="<?= $base_url ?>function/function_warehouse/resep/index.php" class="sb-link <?= ($active ?? '') === 'resep' ? 'active' : '' ?>"><i class='bx bx-book-alt'></i> Kelola Resep</a>
+          <a href="<?= $base_url ?>function/function_warehouse/resep/index.php" class="sb-link <?= ($active ?? '') === 'warehouse-resep' ? 'active' : '' ?>"><i class='bx bx-book-alt'></i> Kelola Resep</a>
           <a href="<?= $base_url ?>function/function_warehouse/alert_stok.php" class="sb-link <?= ($active ?? '') === 'alert_warehouse' ? 'active' : '' ?>"><i class='bx bx-bell'></i> Alert Stok</a>
-          <a href="" class="sb-link <?= ($active ?? '') === 'laporan_werehouse' ? 'active' : '' ?>"><i class='bx bx-bar-chart-alt-2'></i> Laporan Stok</a>
-          <a href="" class="sb-link <?= ($active ?? '') === 'log_werehouse' ? 'active' : '' ?>"><i class='bx bx-history'></i> Riwayat Log</a>
+          <a href="<?= $base_url ?>function/function_warehouse/laporan/index.php" class="sb-link <?= ($active ?? '') === 'laporan_warehouse' ? 'active' : '' ?>"> <i class='bx bx-bar-chart-alt-2'></i> Laporan Stok</a>
+          <a href="<?= $base_url ?>function/function_warehouse/laporan/log.php" class="sb-link <?= ($active ?? '') === 'log_warehouse' ? 'active' : '' ?>"><i class='bx bx-history'></i> Riwayat Log</a>
         </div>
       <?php endif; ?>
 

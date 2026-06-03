@@ -17,7 +17,7 @@ $form   = [
     'harga_modal'  => '',
 ];
 
-// kategori bahan buat cafe bakery
+// kategori bahan buat cafe 
 $kategori_list = ['bahan_baku', 'minuman', 'topping', 'kemasan'];
 
 // proses submit
